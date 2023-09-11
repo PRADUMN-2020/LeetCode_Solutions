@@ -74,7 +74,6 @@ for(int i=n-1;i>=0;i--)
       for(int i=0;i<n;i++)
       {
           int area=heights[i]*( firstSmallerOnRight[i]-firstSmallerOnLeft[i]-1);
-        //   cout<<area<<endl;
           mxArea=max(mxArea,area);
       }
 
