@@ -2,7 +2,7 @@ class Solution {
 public:
 // Intuition:
 
-// Time:O(n^2), Space:O(1)
+// Time:O(n), Space:O(n)
 
     int largestRectangleArea(vector<int>& heights) {
         int mxArea=0;
@@ -11,7 +11,7 @@ public:
         vector<int>firstSmallerOnLeft(n,-1);
         vector<int>firstSmallerOnRight(n,n);
 
-// first Smaller On Left computation.
+// first Smaller On Left computation. O(n) Time.
         for(int i=0;i<n;i++)
         {
             if(st.size())
@@ -36,14 +36,14 @@ public:
 
             st.push(i);
         }
-// clear the stack for the firstSmallerOnRight computation.
+// clear the stack for the firstSmallerOnRight computation. O(n) Time.
         while(st.size())
         {
             st.pop();
         }
 
 
-// first Smaller On Right computation.
+// first Smaller On Right computation. O(n) Time.
 
 for(int i=n-1;i>=0;i--)
         {
@@ -70,6 +70,7 @@ for(int i=n-1;i>=0;i--)
             st.push(i);
         }
 
+// Taking the max of the areas of max size rectangles with height equal to a perticular element in the array.
 
       for(int i=0;i<n;i++)
       {
