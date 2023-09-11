@@ -1,6 +1,8 @@
 class Solution {
 public:
     vector<int> nextGreaterElements(vector<int>& nums) {
+
+        // Time:O(n), Space:O(n)
        
         int n=nums.size();
         stack<int>st;
