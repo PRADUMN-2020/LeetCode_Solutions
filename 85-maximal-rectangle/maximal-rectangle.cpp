@@ -1,8 +1,12 @@
+//Intuition: To solve this, we will use the procedure to find the max area in the histogram problem. Basically here we create an array heights of size m and one by one iterate on each row and for each row we assume that there are buildings or bars in histogram of height equal to the number of ones from the i row to above till upwards.  In a row for each building we store its height at heights[j] and fill the heights array. Then we pass on this heights array to the procedure to find the max area in the histogram and update the max area in mxArea. Finally after doing this for all the rows mxArea will have the max area of the rectangle in the matrix and we return this.
+
 class Solution {
 public:
     int maximalRectangle(vector<vector<char>>& matrix) {
         // Prerequisite Max Area in  the histogram.
         // Time:O(n*m), Space:O(m)
+// Here there are n iterations of rows and O(m) time for the max area in the histogram procedure so total time is n*m.
+
         int n=matrix.size();
         int m=matrix[0].size();
         int mxArea=0;
@@ -10,6 +14,7 @@ public:
      
         for(int i=0;i<n;i++)
         {
+// Calculating the heights array.
            for(int j=0;j<m;j++)
            {
                if(matrix[i][j]=='1')
@@ -22,6 +27,7 @@ public:
                }
            }
 
+// Passing heights array to the procedure to find the maxArea in the histogram.
              
            stack<int>st;
 
@@ -74,6 +80,8 @@ public:
         }
 
         }
+
+// Finally returning the Max area reactangle in the given matrix.
         return mxArea;
        
 
