@@ -2,6 +2,7 @@ class Solution {
 public:
     int maximalRectangle(vector<vector<char>>& matrix) {
         // Prerequisite Max Area in  the histogram.
+        // Time:O(n*m), Space:O(m)
         int n=matrix.size();
         int m=matrix[0].size();
         int mxArea=0;
