@@ -25,7 +25,6 @@ public:
                         int area=0;
                         if(st.size())
                         {
-                            
                             area=height*(st.top()-i-1);
                         }
                         else
