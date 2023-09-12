@@ -1,6 +1,6 @@
 class Solution {
 public:
-// Intuition: Here we first find the first smaller element on the left for each element of the array. And then we find the first smaller element on the right for each element using stack (for O(N) time). Then we know that the max size rectangle will have a height equal to that of one of the element in the array. So for each element in the array we try to make the largest rectangle with height equal to that element. And the answer will be one of these so we find the max area amoung all these and that will be the answer. For a perticular element the largest rectangle with that height will have area =  heights[i]*( firstSmallerOnRight[i]-firstSmallerOnLeft[i]-1) so we find this area for each element and take the max amoung them. The max will be the answer.
+// Intuition: Previous version 3 pass this version 1 pass solution. Complex Intuition Link: https://www.youtube.com/watch?v=jC_cWLy7jSI
 
 // Time:O(n), Space:O(n)
 
