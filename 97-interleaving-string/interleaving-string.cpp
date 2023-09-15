@@ -65,22 +65,23 @@ public:
         int o=s3.size();
         vector<vector<int>>dp(n+1,vector<int>(m+1));
         
-        dp[n][m]=o==n+m;
+        
         
         for(int i=n;i>=0;i--)
         {
             for(int j=m;j>=0;j--)
             {
+                int k=i+j;
                 if(i==n and j==m)
                 {
-                    continue;
+                    dp[i][j]=(o==n+m);
                 }
-                int k=i+j;
-                if(n-i+m-j!=o-k)
+                
+               else if(n-i+m-j!=o-k)
                 {
                     continue;
                 }
-                if(i==n)
+                else if(i==n)
                 {
                     dp[i][j]=(s2[j]==s3[k] and dp[i][j+1]);
                 }
