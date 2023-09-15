@@ -91,14 +91,7 @@ public:
                 {
                     continue;
                 }
-                if(i==n)
-                {
-                    if(s2[j]==s3[o-1-(m-1-j)] and dp[n][j+1])
-            {
-                dp[n][j]=1;
-            }
-                }
-                
+                               
                 if(s3[k]==s1[i] and s3[k]==s2[j])
                 {
                     dp[i][j]= dp[i+1][j] or dp[i][j+1];
