@@ -3,7 +3,7 @@ public:
 // f(i,j) denotes that weather the remaining string 3 can be formed by interleaving of s1 i onwards and s2 j onwards.
     bool f(int i,int j, string &s1,string &s2,string &s3, int n,int m,int o, vector<vector<int>>&dp)
     {
-        // Time:O(n*m), Space:O(m+n)[auxillary stack]+O(n*m)
+        // Time:O(n*m), Space:O(n*m)
         int k=i+j;
         if(n-i+m-j!=o-k)
         {
@@ -63,49 +63,62 @@ public:
         int n=s1.size();
         int m=s2.size();
         int o=s3.size();
-        vector<vector<int>>dp(n+1,vector<int>(m+1));
+        if(o!=m+n)
+        return 0;
+       vector<int>prev(m+1),curr(m+1);
         
+        prev[m]=o==n+m;
+       
+       for(int j=m-1;j>=0;j--)
+       {
+           prev[j]=(s2[j]==s3[o-1-(m-1-j)]) and prev[j+1];
+         
+       }
+       
+   
         
-        
-        for(int i=n;i>=0;i--)
+        for(int i=n-1;i>=0;i--)
         {
             for(int j=m;j>=0;j--)
             {
+
                 int k=i+j;
-                if(i==n and j==m)
+                if(n-i+m-j!=o-k)
                 {
-                    dp[i][j]=(o==n+m);
+                    curr[j]=0;
+                    
                 }
-                
-               else if(n-i+m-j!=o-k)
+               else if(j==m)
                 {
-                    continue;
-                }
-                else if(i==n)
-                {
-                    dp[i][j]=(s2[j]==s3[k] and dp[i][j+1]);
-                }
-                else if(j==m)
-                {
-                    dp[i][j]=(s1[i]==s3[k] and dp[i+1][j]);
+                     if(s1[i]==s3[o-1-(n-1-i)] and prev[m])
+            {
+                curr[m]=1;
+            }
+
                 }
                                
                 else if(s3[k]==s1[i] and s3[k]==s2[j])
                 {
-                    dp[i][j]= dp[i+1][j] or dp[i][j+1];
+                    curr[j]= prev[j] or curr[j+1];
                 }
                 else if(s3[k]==s1[i])
                 {
-                dp[i][j]=dp[i+1][j];
+                curr[j]=prev[j];
                 }
                 else if(s3[k]==s2[j])
                 {
-                    dp[i][j]= dp[i][j+1];
+                    curr[j]= curr[j+1];
                 }
+                else
+                curr[j]=0;
                 
+             
             }
+           
+          
+            prev=curr;
         }
 
-        return dp[0][0];
+        return prev[0];
     }
 };
