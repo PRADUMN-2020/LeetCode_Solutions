@@ -10,13 +10,13 @@ public:
         if(o!=m+n)
         return 0;
 
-       vector<int>prev(m+1);
+       vector<int>dp(m+1);
 
-        prev[m]=o==n+m;
+        dp[m]=o==n+m;
 
        for(int j=m-1;j>=0;j--)
        {
-           prev[j]=(s2[j]==s3[o-1-(m-1-j)]) and prev[j+1];
+           dp[j]=(s2[j]==s3[o-1-(m-1-j)]) and dp[j+1];
        }
        
         for(int i=n-1;i>=0;i--)
@@ -28,39 +28,39 @@ public:
                 int k=i+j;
                 if(n-i+m-j!=o-k)
                 {
-                   prev[j]=0;
+                   dp[j]=0;
                 }
                else if(j==m)
                 {
-                    if(s1[i]==s3[(o-1-(n-1-i))] and prev[j])
+                    if(s1[i]==s3[(o-1-(n-1-i))] and dp[j])
                     {
                         
-                        prev[m]=1;
+                        dp[m]=1;
                     }
                     else
                     {
-                        prev[m]=0;
+                        dp[m]=0;
                     }
 
                 }
                                
                 else if(s3[k]==s1[i] and s3[k]==s2[j])
                 {
-                    prev[j]= prev[j] or prev[j+1];
+                    dp[j]= dp[j] or dp[j+1];
                 }
                 else if(s3[k]==s1[i])
                 {
-                prev[j]=prev[j];
+               dp[j]=dp[j];
                 }
                 else if(s3[k]==s2[j])
                 {
-                    prev[j]= prev[j+1];
+                    dp[j]= dp[j+1];
                 }
                 else
-               prev[j]=0;
+               dp[j]=0;
             }
         }
 
-        return prev[0];
+        return dp[0];
     }
 };
