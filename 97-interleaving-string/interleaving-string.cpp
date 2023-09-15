@@ -9,6 +9,7 @@ public:
         int o=s3.size();
         if(o!=m+n)
         return 0;
+
        vector<int>prev(m+1);
 
         prev[m]=o==n+m;
@@ -27,12 +28,10 @@ public:
                 int k=i+j;
                 if(n-i+m-j!=o-k)
                 {
-                  
                    prev[j]=0;
                 }
                else if(j==m)
                 {
-        
                     if(s1[i]==s3[(o-1-(n-1-i))] and prev[j])
                     {
                         
