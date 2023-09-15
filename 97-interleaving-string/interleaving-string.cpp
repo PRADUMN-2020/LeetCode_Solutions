@@ -2,7 +2,8 @@ class Solution {
 public:
 // f(i,j) denotes that weather the remaining string 3 can be formed by interleaving of s1 i onwards and s2 j onwards.
     
-    bool isInterleave(string s1, string s2, string s3) {
+    bool isInterleave(string &s1, string &s2, string &s3) {
+        // Time:O(n*m), Space:O(m)
         int n=s1.size();
         int m=s2.size();
         int o=s3.size();
