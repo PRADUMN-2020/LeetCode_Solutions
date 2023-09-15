@@ -2,6 +2,7 @@ class Solution {
 public:
     bool f(int i,int j,int k,string &s1,string &s2,string &s3, int n,int m,int o, vector<vector<vector<int>>>&dp)
     {
+        // Time:O(n*m*o), Space:O(m+n)[auxillary stack]+O(n*m*o)
         if(n-i+m-j!=o-k)
         {
             return 0;
