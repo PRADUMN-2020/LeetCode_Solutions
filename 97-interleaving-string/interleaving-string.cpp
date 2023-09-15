@@ -1,5 +1,6 @@
 class Solution {
 public:
+// f(i,j) denotes that weather the remaining string 3 can be formed by interleaving of s1 i onwards and s2 j onwards.
     bool f(int i,int j, string &s1,string &s2,string &s3, int n,int m,int o, vector<vector<int>>&dp)
     {
         // Time:O(n*m), Space:O(m+n)[auxillary stack]+O(n*m)
@@ -63,6 +64,7 @@ public:
         int m=s2.size();
         int o=s3.size();
         vector<vector<int>>dp(n+1,vector<int>(m+1,-1));
+
         return f(0,0,s1,s2,s3,n,m,o,dp);
     }
 };
