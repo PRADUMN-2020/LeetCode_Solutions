@@ -20,8 +20,8 @@ public:
                     break;
                 }
             }
-   
-             return ans;
+
+            return ans;
         }
 
         if(j==m)
@@ -63,8 +63,58 @@ public:
         int n=s1.size();
         int m=s2.size();
         int o=s3.size();
-        vector<vector<int>>dp(n+1,vector<int>(m+1,-1));
+        vector<vector<int>>dp(n+1,vector<int>(m+1));
+        
+        dp[n][m]=o==n+m;
+        for(int j=m-1;j>=0;j--)
+        {
+            if(s2[j]==s3[o-1-(m-1-j)] and dp[n][j+1])
+            {
+                dp[n][j]=1;
+            }
+            else break;
+        }
+         for(int i=n-1;i>=0;i--)
+        {
+            if(s1[i]==s3[o-1-(n-1-i)] and dp[i+1][m])
+            {
+                dp[i][m]=1;
+            }
+            else break;
+        }
+        for(int i=n-1;i>=0;i--)
+        {
+            for(int j=m-1;j>=0;j--)
+            {
+                int k=i+j;
+                if(n-i+m-j!=o-k)
+                {
+                    continue;
+                }
+                if(i==n)
+                {
+                    if(s2[j]==s3[o-1-(m-1-j)] and dp[n][j+1])
+            {
+                dp[n][j]=1;
+            }
+                }
+                
+                if(s3[k]==s1[i] and s3[k]==s2[j])
+                {
+                    dp[i][j]= dp[i+1][j] or dp[i][j+1];
+                }
+                else if(s3[k]==s1[i])
+                {
+                dp[i][j]=dp[i+1][j];
+                }
+                else if(s3[k]==s2[j])
+                {
+                    dp[i][j]= dp[i][j+1];
+                }
+                
+            }
+        }
 
-        return f(0,0,s1,s2,s3,n,m,o,dp);
+        return dp[0][0];
     }
 };
