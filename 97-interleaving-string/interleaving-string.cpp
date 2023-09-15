@@ -2,11 +2,10 @@ class Solution {
 public:
     bool f(int i,int j, string &s1,string &s2,string &s3, int n,int m,int o, vector<vector<int>>&dp)
     {
-        // Time:O(n*m*o), Space:O(m+n)[auxillary stack]+O(n*m*o)
+        // Time:O(n*m), Space:O(m+n)[auxillary stack]+O(n*m)
         int k=i+j;
         if(n-i+m-j!=o-k)
         {
-             cout<<"hello1";
             return 0;
         }
         if(i==n)
@@ -20,7 +19,7 @@ public:
                     break;
                 }
             }
-            cout<<"hello2";
+   
              return ans;
         }
 
@@ -35,7 +34,7 @@ public:
                     break;
                 }
             }
-             cout<<"hello3";
+    
              return ans;
         }
         if(dp[i][j]!=-1)
@@ -55,7 +54,7 @@ public:
             return  dp[i][j]= f(i,j+1,s1,s2,s3,n,m,o,dp);
         }
         else
-        {  cout<<"hello4";
+        { 
             return  dp[i][j]=0;
         }
     }
