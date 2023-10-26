@@ -13,7 +13,8 @@ int M=1e9+7;
        m[arr[i]]=i;
 }    
 vector<int>dp(n,1);
-   for(int i=1;i<n;i++)
+int ans=0;
+   for(int i=0;i<n;i++)
    {
        for(int j=0;j<i;j++)
        {
@@ -26,12 +27,9 @@ vector<int>dp(n,1);
             }
            }
        }
-   }
-   int ans=0;
-   for(int i=0;i<n;i++)
-   {
        ans=(ans+dp[i])%M;
    }
+
    return ans;
 
 }
