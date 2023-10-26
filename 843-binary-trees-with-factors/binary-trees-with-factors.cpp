@@ -3,8 +3,10 @@ public:
 int M=1e9+7;
     int numFactoredBinaryTrees(vector<int>& arr) {
 
+        // Time:O()
+
         sort(arr.begin(),arr.end());
-         map<int,int>m;
+         unordered_map<int,int>m;
          int n=arr.size();
          for(int i=0;i<arr.size();i++)
 {
