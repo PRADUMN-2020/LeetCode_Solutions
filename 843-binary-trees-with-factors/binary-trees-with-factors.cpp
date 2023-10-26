@@ -18,10 +18,9 @@ vector<int>dp(n,1);
            if(arr[i]%arr[j]==0)
            {
                int sec=arr[i]/arr[j];
-            //    cout<<"hi";
+
                if(m.find(sec)!=m.end())
             {dp[i]=(1ll*dp[i]+1ll*dp[j]*dp[m[sec]])%M;
-            // cout<<(dp[j]*dp[m[sec]])<<endl;
             }
            }
        }
