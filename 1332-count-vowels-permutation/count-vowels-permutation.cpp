@@ -2,6 +2,7 @@ class Solution {
 public:
     int M=1e9+7;
     int countVowelPermutation(int n) {
+        //Time:O(n), Space:O(1)
         vector<long long>curr(5), prev(5);
         for(int i=0;i<5;i++)
         {
