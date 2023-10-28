@@ -8,18 +8,16 @@ public:
             if(visited[al[u][i]]==0)
             {
                 dfs(visited,al,al[u][i]);
-                if(visited[al[u][i]]==-1)
-                {
-                   visited[u]=-1;
-                    return;
-                }
-            }
-            else if(visited[al[u][i]]!=2)
-            {
-                visited[u]=-1;
-                return;
             }
         }
+        for(int i=0;i<al[u].size();i++)
+        {
+            if(visited[al[u][i]]!=2)
+            {
+               return;
+            }
+        }
+
         visited[u]=2;
     }
     vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
