@@ -21,7 +21,7 @@ public:
         visited[u]=2;
     }
     vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
-        // Time:O(n)  Space:O(n)
+        // Time:O(n+e)  Space:O(n)
         int n=graph.size();
         vector<int>visited(n,0);
         for(int i=0;i<n;i++)
