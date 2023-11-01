@@ -10,52 +10,7 @@ public:
             return -1;
         }
        
-        // int node=0;
-        // vector<vector<int>>al(n*n+1);
-        // vector<int>visited(n*n+1);
-        // for(int i=0;i<n;i++)
-        // {
-        //     for(int j=0;j<n;j++)
-        //     {
-        //         node++;
-        //         if(grid[i][j]==0)
-        //         {
-        //              if(i-1>=0 and grid[i-1][j]==0)
-        //              {
-        //                  al[node].push_back(node-n);
-        //              }
-        //              if(i-1>=0 and j-1>=0 and grid[i-1][j-1]==0)
-        //              {
-        //                   al[node].push_back(node-n-1);
-        //              }
-        //             if(i-1>=0 and j+1<n and grid[i-1][j+1]==0)
-        //             {
-        //                 al[node].push_back(node-n+1);
-        //             }
-        //             if(j-1>=0 and grid[i][j-1]==0)
-        //             {
-        //                 al[node].push_back(node-1);
-        //             }
-        //             if(j+1<n and grid[i][j+1]==0)
-        //              {
-        //                  al[node].push_back(node+1);
-        //              }
-        //              if(i+1<n and j-1>=0 and grid[i+1][j-1]==0)
-        //              {
-        //                   al[node].push_back(node-1+n);
-        //              }
-        //             if(i+1<n and grid[i+1][j]==0)
-        //             {
-        //                 al[node].push_back(node+n);
-        //             }
-        //             if(i+1<n and j+1<n and grid[i+1][j+1]==0)
-        //             {
-        //                 al[node].push_back(node+n+1);
-        //             }
-        //         }
-        //     }
-        // }
-      
+       
         queue<pair<int,int>>q;
         unordered_map<int,int>visited;
         visited[0]=1;
@@ -80,27 +35,10 @@ public:
                     q.push({childRow,childCol});
                 }
             }
-            // for(int i=0;i<al[u].size();i++)
-            // {
-            //     if(visited[al[u][i]]==0)
-            //     {
-            //         visited[al[u][i]]=1;
-            //         q.push(al[u][i]);
-            //     }
-            // }
-            // }
           
         }
           l++;
         }
-        // if(visited[n*n]==0)
-        // {
-        //     return -1;
-        // }
-        // else
-        // {
-        //     return level[n*n];
-        // }
         return -1;
         
     }
