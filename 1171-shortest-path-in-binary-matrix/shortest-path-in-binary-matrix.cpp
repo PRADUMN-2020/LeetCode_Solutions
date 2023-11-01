@@ -66,8 +66,9 @@ public:
             {
             int u=q.front();
             level[u]=l;
+            if(u==n*n)
+            return level[u];
             q.pop();
-            // p++;
             for(int i=0;i<al[u].size();i++)
             {
                 if(visited[al[u][i]]==0)
@@ -79,15 +80,15 @@ public:
             }
             l++;
         }
-        if(visited[n*n]==0)
-        {
-            return -1;
-        }
-        else
-        {
-            return level[n*n];
-        }
-        
+        // if(visited[n*n]==0)
+        // {
+        //     return -1;
+        // }
+        // else
+        // {
+        //     return level[n*n];
+        // }
+        return -1;
             
     }
 };
