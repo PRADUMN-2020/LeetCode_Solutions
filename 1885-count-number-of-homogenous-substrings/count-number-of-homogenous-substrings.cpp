@@ -2,6 +2,7 @@ class Solution {
 public:
     int M=1e9+7;
     int countHomogenous(string s) {
+        // Time:O(N), Space:O(1)
         long long ans=0;
         int i,j;
         i=j=0;
