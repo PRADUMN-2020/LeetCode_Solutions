@@ -2,6 +2,7 @@ class Solution {
 public:
     
     int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
+        // Time:O(E), Space:O(N+E)
         vector<vector<pair<int,int>>>al(n);
         vector<int>dist(n,1e9);
         for(int i=0;i<flights.size();i++)
