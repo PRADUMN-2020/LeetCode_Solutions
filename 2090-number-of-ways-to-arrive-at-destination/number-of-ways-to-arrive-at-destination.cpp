@@ -2,6 +2,7 @@ class Solution {
 public:
     int M=1e9+7;
     int countPaths(int n, vector<vector<int>>& roads) {
+        // Time:O(elog(n)), Space:O(n+e)
         vector<vector<pair<int,int>>>al(n);
         for(auto it: roads)
         {
@@ -35,10 +36,6 @@ public:
                 }
             }
         }
-        // for(int i=0;i<n;i++)
-        // {
-        //     cout<<dist[i].first<<" "<<dist[i].second<<endl;
-        // }
         return dist[n-1].second;
         
     }
