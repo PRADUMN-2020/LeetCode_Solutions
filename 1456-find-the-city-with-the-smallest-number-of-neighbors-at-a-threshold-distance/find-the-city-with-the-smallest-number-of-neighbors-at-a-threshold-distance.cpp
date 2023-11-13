@@ -17,20 +17,10 @@ public:
    }
     int findTheCity(int n, vector<vector<int>>& edges, int dt) {
         // Time:O(n^3) // Space:O(n^2)
-     vector<vector<int>>am(n,vector<int>(n));
+     vector<vector<int>>am(n,vector<int>(n,inf));
      for(int i=0;i<n;i++)
      {
-         for(int j=0;j<n;j++)
-         {
-             if(i==j)
-             {
-                 am[i][j]=0;
-             }
-             else
-             {
-                 am[i][j]=inf;
-             }
-         }
+        am[i][i]=0;
      }
     int e=edges.size();
     for(int i=0;i<e;i++)
