@@ -6,7 +6,7 @@ public:
      int n=nums.size();
      mini=secondMini=INT_MAX;
      maxi=secondMaxi=INT_MIN;
-     int firstmin=-1,secondmin=-1,firstmax=-1,secondmax=-1;
+     int firstmin=-1,firstmax=-1;
      for(int i=0;i<n;i++)
      {
         if(nums[i]<mini)
