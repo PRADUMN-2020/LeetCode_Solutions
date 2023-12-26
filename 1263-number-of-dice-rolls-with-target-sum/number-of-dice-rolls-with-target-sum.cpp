@@ -3,9 +3,9 @@ public:
     int M=1e9+7;
 
     int numRollsToTarget(int n, int k, int target) {
-        // Time:O(n*target*k), Space:O(n*target)
-      vector<vector<int>>dp(n+1,vector<int>(target+1));
-     dp[0][0]=1;
+        // Time:O(n*target*k), Space:O(target)
+     vector<int>prev(target+1),curr(target+1);
+     prev[0]=1;
         for(int i=1;i<=n;i++)
         {
             for(int j=1;j<=target;j++)
@@ -13,11 +13,12 @@ public:
                 int ways=0;
                 for(int l=1;l<=k and l<=j;l++)
                 {
-                    ways=(1ll*ways+dp[i-1][j-l])%M;
+                    ways=(1ll*ways+prev[j-l])%M;
                 }
-                dp[i][j]=ways;
+                curr[j]=ways;
             }
+            prev=curr;
         }
-      return dp[n][target];   
+      return curr[target];   
     }
 };
