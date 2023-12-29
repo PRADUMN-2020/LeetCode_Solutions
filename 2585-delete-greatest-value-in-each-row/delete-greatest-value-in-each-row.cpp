@@ -1,6 +1,7 @@
 class Solution {
 public:
     int deleteGreatestValue(vector<vector<int>>& grid) {
+        //Time:O(n*m*log(m)), Space:O(n*m)
      int n=grid.size();
      int m=grid[0].size();
      vector<priority_queue<int>>vpq(n);
