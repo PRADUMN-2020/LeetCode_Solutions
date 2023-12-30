@@ -2,12 +2,12 @@ class Solution {
 public:
     int minimumOperations(vector<int>& nums) {
         //Time:O(n*log(n)), Space:O(n)
-        set<int>st;
+        unordered_map<int,int>mp;
         for(auto it:nums)
         {
             if(it)
-            st.insert(it);
+            mp[it]++;
         }
-        return st.size();
+        return mp.size();
     }
 };
