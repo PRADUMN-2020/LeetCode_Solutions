@@ -42,6 +42,7 @@ public:
     }
     
     bool isSameTree(TreeNode* p, TreeNode* q) {
+        // Time:O(n+m), Space:O(n+m)
         vector<int>inorder1;
         vector<int>preorder1;
         vector<int>inorder2;
