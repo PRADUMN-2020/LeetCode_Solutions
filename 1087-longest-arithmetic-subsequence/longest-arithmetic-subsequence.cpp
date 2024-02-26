@@ -1,9 +1,11 @@
 class Solution {
 public:
     int longestArithSeqLength(vector<int>& nums) {  
+        
+        // Time:O(n^2), Space:O(n*1000)
         int n=nums.size();
         vector<unordered_map<int,int>>dp(n);
-        
+    
         int ans=INT_MIN;
       
           for(int i=0;i<n;i++)
