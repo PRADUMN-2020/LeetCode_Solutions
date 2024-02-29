@@ -12,6 +12,7 @@
 class Solution {
 public:
     bool isEvenOddTree(TreeNode* root) {
+        //Time:O(n), Space:O(n)
         queue<TreeNode*>q;
         q.push(root);
         int level=0;
