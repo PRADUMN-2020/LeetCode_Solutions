@@ -1,6 +1,8 @@
 class Solution {
 public:
     vector<int> sortedSquares(vector<int>& nums) {
+        
+     //Time:O(n), Space:O(n)
      int minInd=-1;
      int mn=INT_MAX;
      int n=nums.size();
