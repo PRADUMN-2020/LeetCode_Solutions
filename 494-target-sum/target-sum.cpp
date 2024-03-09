@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int helper(vector<int>&nums,int n,int target)
+    int helper(vector<int>&nums,int n,int target, vector<map<int,int>>&dp)
     {
         if(n==0)
         {
@@ -12,13 +12,18 @@ public:
             }
             else return 0;
         }
-        int plus=helper(nums,n-1,target-nums[n]);
-        int minus=helper(nums,n-1,target+nums[n]);
-        return plus+minus;
+            if(dp[n].find(target)!=dp[n].end())
+        {
+            return dp[n][target];
+        }
+        int plus=helper(nums,n-1,target-nums[n],dp);
+        int minus=helper(nums,n-1,target+nums[n],dp);
+         return dp[n][target]=plus+minus;
     }
     
     int findTargetSumWays(vector<int>& nums, int target) {
         int n=nums.size();
-        return helper(nums,n-1,target);
+        vector<map<int,int>>dp(n);
+        return helper(nums,n-1,target,dp);
     }
 };
