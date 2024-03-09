@@ -1,6 +1,7 @@
 class Solution {
 public:
     int getCommon(vector<int>& nums1, vector<int>& nums2) {
+        // Time:O(n+m), Space:O(1)
      int n=nums1.size();
      int m=nums2.size();
      int i=0,j=0;
