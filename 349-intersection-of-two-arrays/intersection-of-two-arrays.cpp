@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        // Time:O(n*log(n)+m*log(m)), Space:O(1)
         vector<int>ans;
         sort(nums1.begin(),nums1.end());
         sort(nums2.begin(),nums2.end());
