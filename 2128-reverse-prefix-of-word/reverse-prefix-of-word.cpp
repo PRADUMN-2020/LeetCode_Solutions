@@ -1,6 +1,7 @@
 class Solution {
 public:
     string reversePrefix(string word, char ch) {
+        // Time:O(n), Space:O(1)
         int find=-1;
         int n=word.size();
         for(int i=0;i<n;i++)
